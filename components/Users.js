@@ -13,7 +13,7 @@ const Users = () => {
     }, []);
 
     return (
-        <View style={[styles.base]}>
+        <View style={styles.base}>
             <FlatList
                 data={users}
                 renderItem={({item}) => <User item={item}/>}
