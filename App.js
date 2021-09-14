@@ -1,32 +1,31 @@
-import {StatusBar} from 'expo-status-bar';
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import Users from "./components/Users";
+import {StyleSheet} from 'react-native';
 import Home from "./components/Home";
 import {NavigationContainer} from "@react-navigation/native";
-import {createStackNavigator} from "@react-navigation/stack";
-import UserDetails from "./screens/UserDetails";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import UsersPageNavigator from "./screens/UsersPageNavigator";
 
 
-let StackNavigator = createStackNavigator();
+let BottomTabNavigator = createBottomTabNavigator();
 
 export default function App() {
-  return (
+    return (
 
 
-      <NavigationContainer>
-        <StackNavigator.Navigator initialRouteName="Users page">
-          <StackNavigator.Screen name={'Home'} component={Home}/>
-          <StackNavigator.Screen name={'Users page'} component={Users}/>
-          <StackNavigator.Screen name={'uDetails'} component={UserDetails}/>
+        <NavigationContainer>
+            <BottomTabNavigator.Navigator>
+                <BottomTabNavigator.Screen name={'users'} component={UsersPageNavigator} options={{
+                    headerStyle:{height:30}, headerTitleStyle: { display: 'none'}}}/>
+                <BottomTabNavigator.Screen name={'home'} component={Home}  options={{
+                    headerStyle:{height:30}, headerTitleStyle: { display: 'none'}}}/>
+            </BottomTabNavigator.Navigator>
 
-        </StackNavigator.Navigator>
-
-      </NavigationContainer>
-  );
+        </NavigationContainer>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {},
+    container: {},
 });
+
 

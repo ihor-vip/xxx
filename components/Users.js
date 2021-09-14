@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, StyleSheet} from 'react-native';
-import {View, Text, Button, TouchableOpacity} from 'react-native';
+import {View} from 'react-native';
 import {getUsers} from "../service/service";
 import User from "./User";
 
